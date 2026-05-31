@@ -12,7 +12,6 @@ import java.time.LocalDate
 
 class TaskRepositoryImpl : TaskRepository {
 
-    // Simulamos una base de datos en memoria con tareas de ejemplo
     private val _tasks = MutableStateFlow(
         listOf(
             Task(
