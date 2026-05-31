@@ -19,6 +19,8 @@ import java.time.LocalDate
 fun TaskForm(
     title: String,
     onTitleChange: (String) -> Unit,
+    description: String,
+    onDescriptionChange: (String) -> Unit,
     selectedCategory: Category,
     onCategoryChange: (Category) -> Unit,
     selectedPriority: Priority,
@@ -37,6 +39,15 @@ fun TaskForm(
             onValueChange = onTitleChange,
             label = { Text("Título") },
             singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        OutlinedTextField(
+            value = description,
+            onValueChange = onDescriptionChange,
+            label = { Text("Descripción") },
+            placeholder = { Text("Opcional...") },
+            maxLines = 3,
             modifier = Modifier.fillMaxWidth()
         )
 

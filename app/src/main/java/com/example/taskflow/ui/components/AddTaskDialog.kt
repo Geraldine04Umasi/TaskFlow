@@ -19,11 +19,12 @@ import java.time.LocalDate
 @Composable
 fun AddTaskDialog(
     taskToEdit: Task? = null,
-    onConfirm: (title: String, category: Category, priority: Priority, dueDate: LocalDate?) -> Unit,
+    onConfirm: (title: String, description: String, category: Category, priority: Priority, dueDate: LocalDate?) -> Unit,
     onDismiss: () -> Unit
 ) {
     // Estado del formulario — SRP: solo maneja estado, delega UI a TaskForm
     var title by remember { mutableStateOf(taskToEdit?.title ?: "") }
+    var description by remember { mutableStateOf(taskToEdit?.description ?: "") }
     var selectedCategory by remember { mutableStateOf(taskToEdit?.category ?: Category.TRABAJO) }
     var selectedPriority by remember { mutableStateOf(taskToEdit?.priority ?: Priority.MEDIA) }
     var selectedDate by remember { mutableStateOf<LocalDate?>(taskToEdit?.dueDate) }
@@ -41,6 +42,8 @@ fun AddTaskDialog(
             TaskForm(
                 title = title,
                 onTitleChange = { title = it },
+                description = description,
+                onDescriptionChange = { description = it },
                 selectedCategory = selectedCategory,
                 onCategoryChange = { selectedCategory = it },
                 selectedPriority = selectedPriority,
@@ -53,7 +56,7 @@ fun AddTaskDialog(
             TextButton(
                 onClick = {
                     if (title.isNotBlank()) {
-                        onConfirm(title, selectedCategory, selectedPriority, selectedDate)
+                        onConfirm(title, description, selectedCategory, selectedPriority, selectedDate)
                     }
                 }
             ) { Text("Guardar") }

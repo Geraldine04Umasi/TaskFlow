@@ -116,18 +116,19 @@ fun TaskScreen(
         if (showDialog) {
             AddTaskDialog(
                 taskToEdit = taskToEdit,
-                onConfirm = { title, category, priority, dueDate ->
+                onConfirm = { title, description, category, priority, dueDate ->
                     if (taskToEdit != null) {
                         viewModel.updateTask(
                             taskToEdit!!.copy(
                                 title = title,
+                                description = description,
                                 category = category,
                                 priority = priority,
                                 dueDate = dueDate
                             )
                         )
                     } else {
-                        viewModel.addTask(title, category, priority, dueDate)
+                        viewModel.addTask(title, description,category, priority, dueDate)
                     }
                     showDialog = false
                     taskToEdit = null

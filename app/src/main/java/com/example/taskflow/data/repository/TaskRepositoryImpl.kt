@@ -17,6 +17,7 @@ class TaskRepositoryImpl : TaskRepository {
             Task(
                 id = 1,
                 title = "Finalizar informe Q2",
+                description = "Incluir métricas de ventas y proyecciones",
                 category = Category.TRABAJO,
                 priority = Priority.ALTA,
                 dueDate = LocalDate.now().minusDays(1),
@@ -25,6 +26,7 @@ class TaskRepositoryImpl : TaskRepository {
             Task(
                 id = 2,
                 title = "Implementar principio SRP en ViewModel",
+                description = "",
                 category = Category.ESTUDIO,
                 priority = Priority.ALTA,
                 dueDate = LocalDate.now().plusDays(5),
@@ -33,6 +35,7 @@ class TaskRepositoryImpl : TaskRepository {
             Task(
                 id = 3,
                 title = "Correr 30 minutos",
+                description = "",
                 category = Category.SALUD,
                 priority = Priority.MEDIA,
                 dueDate = LocalDate.now(),
@@ -41,6 +44,7 @@ class TaskRepositoryImpl : TaskRepository {
             Task(
                 id = 4,
                 title = "Leer sobre Clean Architecture",
+                description = "",
                 category = Category.ESTUDIO,
                 priority = Priority.MEDIA,
                 dueDate = LocalDate.now().plusDays(10),
@@ -49,6 +53,7 @@ class TaskRepositoryImpl : TaskRepository {
             Task(
                 id = 5,
                 title = "Reunión con el equipo de diseño",
+                description = "",
                 category = Category.TRABAJO,
                 priority = Priority.ALTA,
                 dueDate = LocalDate.now().plusDays(2),
@@ -57,6 +62,7 @@ class TaskRepositoryImpl : TaskRepository {
             Task(
                 id = 6,
                 title = "Comprar víveres",
+                description = "",
                 category = Category.PERSONAL,
                 priority = Priority.BAJA,
                 dueDate = LocalDate.now().plusDays(3),

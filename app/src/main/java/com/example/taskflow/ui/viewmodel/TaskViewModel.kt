@@ -74,6 +74,7 @@ class TaskViewModel(
 
     fun addTask(
         title: String,
+        description: String,
         category: Category,
         priority: Priority,
         dueDate: LocalDate?
@@ -83,6 +84,7 @@ class TaskViewModel(
                 Task(
                     id = 0, // el repositorio asigna el id real
                     title = title,
+                    description = description,
                     category = category,
                     priority = priority,
                     dueDate = dueDate
