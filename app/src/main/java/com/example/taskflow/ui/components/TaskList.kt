@@ -20,11 +20,12 @@ fun TaskList(
     onToggle: (Int) -> Unit,
     onEdit: (Task) -> Unit,
     onDelete: (Int) -> Unit,
+    onClick: (Task) -> Unit,
     modifier: Modifier = Modifier
 ) {
     if (tasks.isEmpty()) {
         Text(
-            text = "No hay tareas aquí todavía 🎉",
+            text = "No hay tareas aquí todavía :D",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
             textAlign = TextAlign.Center,
@@ -46,7 +47,8 @@ fun TaskList(
                     task = task,
                     onToggle = onToggle,
                     onEdit = onEdit,
-                    onDelete = onDelete
+                    onDelete = onDelete,
+                    onClick = onClick
                 )
             }
         }

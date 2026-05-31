@@ -38,7 +38,7 @@ fun AddTaskDialog(
             )
         },
         text = {
-            // OCP: si mañana quieres un formulario diferente, solo cambias TaskForm
+            // OCP: si mañana se quiere un formulario diferente, solo cambia TaskForm
             TaskForm(
                 title = title,
                 onTitleChange = { title = it },

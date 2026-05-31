@@ -30,6 +30,7 @@ import com.example.taskflow.ui.components.AddTaskDialog
 import com.example.taskflow.ui.components.CategoryFilter
 import com.example.taskflow.ui.components.TaskList
 import com.example.taskflow.ui.viewmodel.TaskViewModel
+import com.example.taskflow.ui.components.TaskDetailSheet
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,6 +41,7 @@ fun TaskScreen(
 
     var showDialog by remember { mutableStateOf(false) }
     var taskToEdit by remember { mutableStateOf<Task?>(null) }
+    var selectedTask by remember { mutableStateOf<Task?>(null) }
 
     Scaffold(
         topBar = {
@@ -100,6 +102,7 @@ fun TaskScreen(
             TaskList(
                 tasks = uiState.tasks,
                 onToggle = { viewModel.toggleDone(it) },
+                onClick = { task -> selectedTask = task },
                 onEdit = { task ->
                     taskToEdit = task
                     showDialog = true
@@ -109,6 +112,18 @@ fun TaskScreen(
                     .fillMaxSize()
                     .padding(horizontal = 16.dp)
                     .padding(top = 8.dp)
+            )
+        }
+
+        selectedTask?.let { task ->
+            TaskDetailSheet(
+                task = task,
+                onEdit = { t ->
+                    taskToEdit = t
+                    showDialog = true
+                },
+                onDelete = { viewModel.deleteTask(it) },
+                onDismiss = { selectedTask = null }  // ← cierra el sheet
             )
         }
 

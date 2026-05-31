@@ -34,11 +34,13 @@ fun TaskCard(
     onToggle: (Int) -> Unit,
     onEdit: (Task) -> Unit,
     onDelete: (Int) -> Unit,
+    onClick: (Task) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val isOverdue = task.dueDate != null && !task.isDone && task.dueDate.isBefore(LocalDate.now())
 
     Card(
+        onClick = { onClick(task) },
         modifier = modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         colors = CardDefaults.cardColors(
